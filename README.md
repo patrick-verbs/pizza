@@ -52,14 +52,14 @@ This project's repository and contained source is available under the MIT Licens
 ###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Specs_
 ### Whiteboarding
 UI logic
-- Home page ```[stretch]```
-- Order page ```[MVP]```
+- Home screen ```[stretch]```
+- Order screen ```[MVP]```
   - Enter name and/or address ```[stretch]```
   - Select pizza size ```[MVP]```
   - Select pizza toppings ```[MVP]```
   - Display real-time price ```[MVP]```
   - "Pay"/submit button with simple "thank you"/confirmation ```[MVP]```
-- Results/confirmation page ```[stretch]```
+- Results/confirmation screen ```[stretch]```
 
 Business logic
 - "Order" object constructor ```[stretch]```
@@ -90,7 +90,7 @@ Business logic
 | __Test:__                | It constructs Pizza objects that contain a "topping" array as a property. |
 | __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
 | __Expected Output 1:__   | ```Pizza {size: "medium", toppings: Array(0)}``` |
-| __Code 2:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```const myPizza = new Pizza("medium");```<br>```myPizza.toppings = myToppings;```<br>```myPizza;``` |
+| __Code 2:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```myPizza.toppings = myToppings;```<br>```myPizza;``` |
 | __Expected Output 2:__   | ```Pizza {size: "medium", toppings:  Array(3)}``` |
 |                          ||
 |                          ||
@@ -106,19 +106,17 @@ Business logic
 |                          ||
 |                          ||
 |                          ||
+| __Test:__                | It won't push items into the "toppings" property's array if there are already 12 items (or somehow more). |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```const myToppings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "daisies", "dandelions"];```<br>```myToppings.forEach(function(element) {```<br>```  myPizza.addTopping(element)```<br>```})```<br>```myPizza.toppings;``` |
+| __Expected Output 1:__   | ```[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]``` |
+| __Code 2:__              | ```myPizza.addTopping["daisies"];```<br>```myPizza.toppings;``` |
+| __Expected Output 2:__   | ```[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]``` |
+|                          ||
+|                          ||
+|                          ||
 
 ---
 ### Failing/Untested
-| _Describe:_              | _Pizza.prototype.addTopping()_ |
-|--------------------------|--------------|
-| __Test:__                | It won't push items into the "toppings" property's array if there are already 12 items (or somehow more). |
-| __Code 1:__              |  |
-| __Expected Output 1:__   |  |
-| __Code 2:__              |  |
-| __Expected Output 2:__   |  |
-|                          ||
-|                          ||
-|                          ||
 | _Describe:_              | __ |
 |--------------------------|--------------|
 | __Test:__                |  |

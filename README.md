@@ -18,15 +18,15 @@
 </details>
 
 # <a name="About"></a>About
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > About_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > About_
 This project was initially created as an assignment. The goal was to demonstrate test-driven development practices and basic proficiency in object-oriented JavaScript by creating a "pizza parlor" website.
 
 ## <a name="Description"></a>Description
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > [About](#About) > Description_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Description_
 forthcoming... :P
 
 ## <a name="Install"></a>Installation & Setup
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > [About](#About) > Installation & Setup_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Installation & Setup_
 The goal of this project is to demonstrate Test-Driven Development. To see this in action:
 - Navigate to this project's [GitHub Pages site](https://github.com/patrick-verbs/pizza) or open _index.html_ in your own cloned or forked repository
 - Open your browser's JavaScript console on the page
@@ -39,17 +39,17 @@ The goal of this project is to demonstrate Test-Driven Development. To see this 
 This project's repository and contained source is available under the MIT License. If you want to have a look under the hood or use any and all components, have at it! If you have a GitHub account, you can Clone or Fork this repository.
 
 ## <a name="Technologies"></a>Technologies Used
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > [About](#About) > Technologies Used_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Technologies Used_
 - __HTML5__
 - __JavaScript__ with __[jQuery v. 3.6.0](https://jquery.com/)__
 - __CSS3__ with __[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)__
 
 ## <a name="Bugs"></a>Known Bugs
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > [About](#About) > Known Bugs_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Known Bugs_
 - definitely fortcoming...
 
 ## <a name="Specs"></a>Test Specs
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > [About](#About) > Specs_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Specs_
 ### Whiteboarding
 UI logic
 - Home page ```[stretch]```
@@ -79,43 +79,64 @@ Business logic
   - rules for pricepoints (e.g. first 3 toppings at same price, 4 or more toppings add the cost of each topping) ```[stretch]```
 
 ### Passing
-| _Describe:_            | _Pizza()_ |
-|------------------------|--------------|
-| __Test:__              | It constructs "pizza" objects that contain a "size" property. |
-| __Code:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
-| __Expected Output:__   | ```Pizza {size: "medium"}``` |
-|                        ||
-|                        ||
-|                        ||
+| _Describe:_              | _Pizza()_ |
+|--------------------------|--------------|
+| __Test:__                | It constructs "Pizza" objects that contain a "size" property. |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
+| __Expected Output 1:__   | ```Pizza {size: "medium"}``` |
+|                          ||
+|                          ||
+|                          ||
+| __Test:__                | It constructs Pizza objects that contain a "topping" array as a property. |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
+| __Expected Output 1:__   | ```Pizza {size: "medium", toppings: Array(0)}``` |
+| __Code 2:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```const myPizza = new Pizza("medium");```<br>```myPizza.toppings = myToppings;```<br>```myPizza;``` |
+| __Expected Output 2:__   | ```Pizza {size: "medium", toppings:  Array(3)}``` |
+|                          ||
+|                          ||
+|                          ||
+<br>
 
 ---
 ### Failing/Untested
-| _Describe:_            | _Pizza()_ |
-|------------------------|--------------|
-| __Test:__              | It should construct "pizza" objects that contain a "topping" array as property. |
-| __Code:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```const myPizza = new Pizza("medium", myToppings);```<br>```myPizza;``` |
-| __Expected Output:__   | ```Pizza {size: "medium", toppings: ["spinach", "sun-dried tomatoes", "roasted garlic"]}``` |
-|                        ||
-|                        ||
-|                        ||
+| _Describe:_              | _Pizza.prototype.addTopping()_ |
+|--------------------------|--------------|
+| __Test:__                | It pushes a string onto the "topping" array/property of Pizza objects. |
+| __Code 1:__              | `````` |
+| __Expected Output 1:__   | `````` |
+| __Code 2:__              | `````` |
+| __Expected Output 2:__   | `````` |
+|                          ||
+|                          ||
+|                          ||
+| _Describe:_              | __ |
+|--------------------------|--------------|
+| __Test:__                |  |
+| __Code 1:__              | `````` |
+| __Expected Output 1:__   | `````` |
+| __Code 2:__              | `````` |
+| __Expected Output 2:__   | `````` |
+|                          ||
+|                          ||
+|                          ||
 
 
 ---
 ### Template
-| _Describe:_            | _testTemplate()_ |
-|------------------------|--------------|
-| __Test:__              | It should do the thing! |
-| __Code:__              | ```testTemplate("Do the thing!");``` |
-| __Expected Output:__   | ```"So here's the thing..."``` |
-|                        ||
-|                        ||
-|                        ||
-| __Test:__              | It should also do this other thing... |
-| __Code:__              | ```testTemplate("Another!");``` |
-| __Expected Output:__   | ```"And another thing!"``` |
+| _Describe:_              | _testTemplate()_ |
+|--------------------------|--------------|
+| __Test:__                | It should do the thing! |
+| __Code 1:__              | ```testTemplate("Do the thing!");``` |
+| __Expected Output 1:__   | ```"So here's the thing..."``` |
+|                          ||
+|                          ||
+|                          ||
+| __Test:__                | It should also do this other thing... |
+| __Code 1:__              | ```testTemplate("Another!");``` |
+| __Expected Output 1:__   | ```"And another thing!"``` |
 
 # <a name="License"></a>License
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > License_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > License_
 <details>
 <summary><a href="https://opensource.org/licenses/MIT"><strong>MIT</strong></a></summary>
 <pre>
@@ -146,5 +167,5 @@ SOFTWARE.
 Copyright © 2021 Patrick Lee
 
 # <a name="Contact"></a>Contact
-###### _[Pizza](https://github.com/patrick-verbs/pizza) > Contact_
+###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > Contact_
 #### Patrick Lee | patricklee1138[at]live[dot]com

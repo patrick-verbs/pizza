@@ -87,7 +87,7 @@ Business logic
 |                          ||
 |                          ||
 |                          ||
-| __Test:__                | It constructs Pizza objects that contain a "topping" array as a property. |
+| __Test:__                | It constructs Pizza objects that contain a "toppings" array in a property. |
 | __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
 | __Expected Output 1:__   | ```Pizza {size: "medium", toppings: Array(0)}``` |
 | __Code 2:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```myPizza.toppings = myToppings;```<br>```myPizza;``` |
@@ -100,7 +100,7 @@ Business logic
 
 | _Describe:_              | _Pizza.prototype.addTopping()_ |
 |--------------------------|--------------|
-| __Test:__                | It pushes a string onto the "topping" array/property of Pizza objects. |
+| __Test:__                | It pushes a string onto the "toppings" property's array of Pizza objects. |
 | __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza.addTopping("flowers");```<br>```myPizza.toppings;``` |
 | __Expected Output 1:__   | ```["flowers"]``` |
 |                          ||

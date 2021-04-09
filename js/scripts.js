@@ -14,6 +14,26 @@ Pizza.prototype.addTopping = function(topping) {
   }
 }
 
+function Topping(name, ingredients, dietaryTags, acquisitionExpense, preparationTime) {
+  this.name = name
+  this.ingredients = ingredients
+  this.dietaryTags = dietaryTags
+  this.acquisitionExpense = acquisitionExpense
+  this.preparationTime = preparationTime
+}
+
+// Database simulation
+//////////////////////
+const all_toppings = [
+  {
+    name: "spinach",
+    ingredients: "spinach leaves",
+    dietaryTags: ["vegetarian", "vegan"],
+    acquisitionExpense: [500, "USD/100", "pound"],
+    preparationTime: [0, "minutes"],
+  },
+]
+
 // Console test instantiation
 /////////////////////////////
 const myPizza = new Pizza("medium");

@@ -116,12 +116,20 @@ Business logic
 |                          ||
 |                          ||
 |                          ||
+| __Test:__                | It adds toppings from the ```const all_toppings = [...]``` pseudo-database. |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza.addTopping(all_toppings, "black olives");```<br>```myPizza.toppings[0].name;``` |
+| __Expected Output 1:__   | ```"black olives"``` |
+| __Code 2:__              | ```myPizza.toppings[0].ingredients;``` |
+| __Expected Output 2:__   | ```["black olives (sliced)", "water", "salt", "ferrous gluconate (to stabilize color)"]``` |
+|                          ||
+|                          ||
+|                          ||
 
 ---
 ### Failing/Untested
 | _Describe:_              | __ |
 |--------------------------|--------------|
-| __Test:__                | It adds toppings from the ```const all_toppings = [...]``` pseudo-database. |
+| __Test:__                |  |
 | __Code 1:__              |  |
 | __Expected Output 1:__   |  |
 | __Code 2:__              |  |

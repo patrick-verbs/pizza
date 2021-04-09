@@ -18,6 +18,7 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
 
 Pizza.prototype.calcCost = function() {
   let livingWage = [3000, "hour"] // All numbers are 1/100th of a USD (so, cents)
+  let laborCostPerMinute = math.floor(livingWage[0] / unitConversion(livingWage[1], "minutes"))
   let total = 0
   let totalExpense = 0
   let totalPrepTime = 0
@@ -31,8 +32,20 @@ Pizza.prototype.calcCost = function() {
   }
 }
 
-function clamp(num, min, max) { // Credit to answer by "dweeves" at https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
-  return num <= min ? min : num >= max ? max : num;
+function clamp(number, min, max) { // Credit to answer by "dweeves" at https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
+  return number <= min ? min : number >= max ? max : number
+}
+
+function unitConversion(inputUnit, outputUnit) {
+  const timeFactors = { // Numbers based on minimum units to delay floating-point handling
+    hours: 60,
+    minutes: 1,
+    seconds: 1000,
+    milliseconds: 1
+  }
+  if (inputUnit.includes("hour") {
+    
+  }
 }
 
 // Database simulation

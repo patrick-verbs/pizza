@@ -1,5 +1,5 @@
-# <a name="Pizza"></a>"Pizza Parlor"
-#### Patrick Lee | _[See this project on GitHub Pages](https://patrick-verbs.github.io/pizza)_ _(...when it's live)_
+# <a name="Pizza"></a>"Pizza Portal"
+#### Patrick Lee | _[See this project on GitHub Pages](https://patrick-verbs.github.io/pizza-portal)_ _(...when it's live)_
 
 ## __If you're an Epicodus student__ (or anyone else!) you're free to use this README as a template for your own work :)
 <details><summary><strong>Contents</strong></summary>
@@ -18,17 +18,17 @@
 </details>
 
 # <a name="About"></a>About
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > About_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > About_
 This project was initially created as an assignment. The goal was to demonstrate test-driven development practices and basic proficiency in object-oriented JavaScript by creating a "pizza parlor" website.
 
 ## <a name="Description"></a>Description
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Description_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Description_
 forthcoming... :P
 
 ## <a name="Install"></a>Installation & Setup
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Installation & Setup_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Installation & Setup_
 The goal of this project is to demonstrate Test-Driven Development. To see this in action:
-- Navigate to this project's [GitHub Pages site](https://github.com/patrick-verbs/pizza) or open _index.html_ in your own cloned or forked repository
+- Navigate to this project's [GitHub Pages site](https://github.com/patrick-verbs/pizza-portal) or open _index.html_ in your own cloned or forked repository
 - Open your browser's JavaScript console on the page
 - In a separate browser tab/window, head to the [Test Specs](#Specs) section below
 - Find a table (headed with the word "__Describe__" followed by a function name)
@@ -39,17 +39,19 @@ The goal of this project is to demonstrate Test-Driven Development. To see this 
 This project's repository and contained source is available under the MIT License. If you want to have a look under the hood or use any and all components, have at it! If you have a GitHub account, you can Clone or Fork this repository.
 
 ## <a name="Technologies"></a>Technologies Used
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Technologies Used_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Technologies Used_
 - __HTML5__
 - __JavaScript__ with __[jQuery v. 3.6.0](https://jquery.com/)__
 - __CSS3__ with __[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)__
 
 ## <a name="Bugs"></a>Known Bugs
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Known Bugs_
-- definitely fortcoming...
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Known Bugs_
+- definitely fortcoming*...
+
+###### *fort<em><strong>h</strong></em>coming
 
 ## <a name="Specs"></a>Test Specs
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > [About](#About) > Specs_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Specs_
 ### Whiteboarding
 UI logic
 - Home screen ```[stretch]```
@@ -119,6 +121,14 @@ Business logic
 ### Failing/Untested
 | _Describe:_              | __ |
 |--------------------------|--------------|
+| __Test:__                | It adds toppings from the ```const all_toppings = [...]``` pseudo-database. |
+| __Code 1:__              |  |
+| __Expected Output 1:__   |  |
+| __Code 2:__              |  |
+| __Expected Output 2:__   |  |
+|                          ||
+|                          ||
+|                          ||
 | __Test:__                |  |
 | __Code 1:__              |  |
 | __Expected Output 1:__   |  |
@@ -144,7 +154,7 @@ Business logic
 | __Expected Output 1:__   | ```"And another thing!"``` |
 
 # <a name="License"></a>License
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > License_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > License_
 <details>
 <summary><a href="https://opensource.org/licenses/MIT"><strong>MIT</strong></a></summary>
 <pre>
@@ -175,5 +185,5 @@ SOFTWARE.
 Copyright © 2021 Patrick Lee
 
 # <a name="Contact"></a>Contact
-###### _[Pizza Place](https://github.com/patrick-verbs/pizza) > Contact_
+###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > Contact_
 #### Patrick Lee | patricklee1138[at]live[dot]com

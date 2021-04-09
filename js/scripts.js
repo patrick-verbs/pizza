@@ -10,17 +10,14 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
   if (this.toppings.length < this.max_toppings) {
     index = toppingDatabase.findIndex(x => x.name === toppingName) // Source: https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
     this.toppings.push(toppingDatabase[index])
+    return true
   } else {
-    console.log("She cann't hold any more toppings, Cap'n!")
+    return false
   }
 }
 
-// function Topping() {
-//   this.name = name
-//   this.ingredients = ingredients
-//   this.dietary_tags = dietary_tags
-//   this.acquisition_expense = acquisition_expense
-// }
+Pizza.prototype.calculateCost = function(expense, prepTime, density, allergenCredit, poisonFee, unethicalFee) {
+}
 
 // Database simulation
 //////////////////////
@@ -35,6 +32,7 @@ const all_toppings = [ // The overall array acts like a database
     acquisition_expense: [500, "USD / 100", "pound"],// likely derived from food provider as well! Eventually use this in topping pricing
     // using minimum units (so, cents instead of dollars) to avoid floating-point headaches as long as possible...
     preparation_time: [0, "minutes"],// also use this in the pricing formula
+    surface_area_density: [1, "ounce", "cm^2"]// Systems of measure (and abbreviation/notation) are intentionally mixed for planned robust handling
   },
   {
     name: "grilled chicken",
@@ -45,6 +43,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "Italian sausage",
@@ -55,6 +54,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "salami",
@@ -65,6 +65,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "feta cheese",
@@ -75,6 +76,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "Parmesan cheese",
@@ -85,6 +87,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "spinach",
@@ -95,6 +98,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "banana peppers",
@@ -105,6 +109,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "pepperoncini",
@@ -115,6 +120,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "black olives",
@@ -125,6 +131,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "garlic",
@@ -135,6 +142,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "roasted garlic",
@@ -145,6 +153,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "green peppers",
@@ -155,6 +164,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "jalapeño peppers",
@@ -165,6 +175,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "mushrooms",
@@ -175,6 +186,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "pineapple",
@@ -185,6 +197,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "onions",
@@ -195,6 +208,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "red onions",
@@ -205,6 +219,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "roasted red peppers",
@@ -215,6 +230,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "diced tomatoes",
@@ -225,6 +241,7 @@ const all_toppings = [ // The overall array acts like a database
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
     preparation_time: [0, "minutes"],
+    surface_area_density: [1, "ounce", "cm^2"],
   },
 ]
 

@@ -38,10 +38,22 @@ function clamp(number, min, max) { // Credit to answer by "dweeves" at https://s
 
 function unitConversion(inputUnit, outputUnit) {
   const timeFactors = { // Numbers based on minimum units to delay floating-point handling
-    hours: 60,
-    minutes: 1,
-    seconds: 1000,
-    milliseconds: 1
+    milliseconds: {
+      factor: 1,
+      synonyms: ["ms", "millisecond", "milliseconds"]
+    },
+    seconds: {
+      factor: 1000,
+      synonyms: ["s", "sec", "secs", "second", "seconds"]
+    },
+    minutes: {
+      factor: 60000,
+      synonyms: ["min", "mins", "minute", "minutes"]
+    },
+    hours: {
+      factor: 3600000,
+      synonyms: ["h", "hr", "hrs", "hour", "hours"]
+    },
   }
   if (inputUnit.includes("hour") {
     

@@ -8,7 +8,7 @@ function Pizza(size) {
 
 Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
   if (this.toppings.length < this.max_toppings) {
-    index = toppingDatabase.findIndex(x => x.name === toppingName) // Source: https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
+    index = toppingDatabase.findIndex(x => x.name === toppingName) // Credit to answer by "Michał Perłakowski" at https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
     this.toppings.push(toppingDatabase[index])
     return true
   } else {
@@ -16,7 +16,23 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
   }
 }
 
-Pizza.prototype.calculateCost = function(expense, prepTime, density, allergenCredit, poisonFee, unethicalFee) {
+Pizza.prototype.calcCost = function() {
+  let livingWage = [3000, "hour"] // All numbers are 1/100th of a USD (so, cents)
+  let total = 0
+  let totalExpense = 0
+  let totalPrepTime = 0
+  let totalPoisonFee = 0
+  let totalUnethicalFee = 0
+  for (let i = 0; i < this.toppings.length; i++) {
+    let topping = this.toppings[i]
+    let expense = topping.acquisition_expense
+    expense += () clamp(      topping.preparation_time[0]
+    let fees = 25 * (topping.health_warning_tags.length + topping.ethics_tags.length)
+  }
+}
+
+function clamp(num, min, max) { // Credit to answer by "dweeves" at https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
+  return num <= min ? min : num >= max ? max : num;
 }
 
 // Database simulation

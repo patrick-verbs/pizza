@@ -79,9 +79,25 @@ Business logic
   - rules for pricepoints (e.g. first 3 toppings at same price, 4 or more toppings add the cost of each topping) ```[stretch]```
 
 ### Passing
+| _Describe:_            | _Pizza()_ |
+|------------------------|--------------|
+| __Test:__              | It constructs "pizza" objects that contain a "size" property. |
+| __Code:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza;``` |
+| __Expected Output:__   | ```Pizza {size: "medium"}``` |
+|                        ||
+|                        ||
+|                        ||
 
 ---
 ### Failing/Untested
+| _Describe:_            | _Pizza()_ |
+|------------------------|--------------|
+| __Test:__              | It should construct "pizza" objects that contain a "topping" array as property. |
+| __Code:__              | ```const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];```<br>```const myPizza = new Pizza("medium", myToppings);```<br>```myPizza;``` |
+| __Expected Output:__   | ```Pizza {size: "medium", toppings: ["spinach", "sun-dried tomatoes", "roasted garlic"]}``` |
+|                        ||
+|                        ||
+|                        ||
 
 
 ---

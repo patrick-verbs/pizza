@@ -26,6 +26,66 @@ function Topping(name, ingredients, dietary_tags, acquisition_expense, preparati
 //////////////////////
 const all_toppings = [ // The overall array acts like a database
   { // Each ingredient is an object in the array
+    name: "pepperoni",
+    ingredients: ["pork", "beef", "salt", "pepper", "dextrose", "lactic acid starter culture", "natural flavors", "oleoresin of paprika", "sodium ascorbate", "sodium nitrite", "citric acid"],// can be used for user-specific filtering (e.g. rare allergies)
+    common_allergen_tags: [],// should be derived from ingredients (and processes/preparation for cross-contamination risk??)
+    dietary_tags: [],// should also be derived from ingredients
+    health_warning_tags: [],// ...also derived
+    ethics_tags: [],// derive from source of foods (way outside the scope of this project)
+    acquisition_expense: [500, "USD/100", "pound"],// likely derived from food provider as well! Eventually use this in topping pricing
+    preparation_time: [0, "minutes"],// also use this in the pricing formula
+  },
+  {
+    name: "grilled chicken",
+    ingredients: ["chicken breast with rib meat (boneless; skinless)", "water", "yeast extract", "garlic powder", "buttermilk powder", "onion powder", "maltodextrin", "modified corn starch", "lipolyzed butter oil", "salt", "whey powder (milk)", "dehydrated garlic", "chicken powder", "flavors", "sunflower oil", "disodium guanylate", "disodium inosinate", "pepper", "chicken fat", "chicken broth", "sodium caseinate (milk)", "sodium phosphate", "modified food starch", "vinegar", "salt", "sodium phosphates"],
+    common_allergen_tags: ["milk"],
+    dietary_tags: [],
+    health_warning_tags: [],
+    ethics_tags: [],
+    acquisition_expense: [500, "USD/100", "pound"],
+    preparation_time: [0, "minutes"],
+  },
+  {
+    name: "Italian sausage",
+    ingredients: ["pork", "water", "salt", "pepper", "dextrose", "sodium phosphates", "natural flavors", "dehydrated garlic", "onion powder", "oleoresin of paprika"],
+    common_allergen_tags: [],
+    dietary_tags: [],
+    health_warning_tags: [],
+    ethics_tags: [],
+    acquisition_expense: [500, "USD/100", "pound"],
+    preparation_time: [0, "minutes"],
+  },
+  {
+    name: "salami",
+    ingredients: ["pork", "beef", "salt", "pepper", "natural flavors", "maltodextrin", "natural smoke flavor", "lactic acid starter culture", "sodium nitrite"],
+    common_allergen_tags: [],
+    dietary_tags: [],
+    health_warning_tags: [],
+    ethics_tags: [],
+    acquisition_expense: [500, "USD/100", "pound"],
+    preparation_time: [0, "minutes"],
+  },
+  {
+    name: "feta cheese",
+    ingredients: ["cultured pasteurized milk", "salt", "enzymes", "potato starch (to prevent caking)"],
+    common_allergen_tags: ["milk"],
+    dietary_tags: ["vegetarian"],
+    health_warning_tags: [],
+    ethics_tags: [],
+    acquisition_expense: [500, "USD/100", "pound"],
+    preparation_time: [0, "minutes"],
+  },
+  {
+    name: "Parmesan cheese",
+    ingredients: ["pasteurized part-skim milk", "cheese cultures", "salt", "enzymes", "powdered cellulose (to prevent caking)", "titanium dioxide"],
+    common_allergen_tags: ["milk"],
+    dietary_tags: ["vegetarian"],
+    health_warning_tags: [],
+    ethics_tags: [],
+    acquisition_expense: [500, "USD/100", "pound"],
+    preparation_time: [0, "minutes"],
+  },
+  { // Each ingredient is an object in the array
     name: "spinach",
     ingredients: ["baby spinach leaves"],// can be used for user-specific filtering (e.g. rare allergies)
     common_allergen_tags: [],// should be derived from ingredients (and processes/preparation for cross-contamination risk??)
@@ -66,16 +126,6 @@ const all_toppings = [ // The overall array acts like a database
     preparation_time: [0, "minutes"],
   },
   {
-    name: "feta cheese",
-    ingredients: ["cultured pasteurized milk", "salt", "enzymes", "potato starch (to prevent caking)"],
-    common_allergen_tags: [],
-    dietary_tags: ["vegetarian"],
-    health_warning_tags: [],
-    ethics_tags: [],
-    acquisition_expense: [500, "USD/100", "pound"],
-    preparation_time: [0, "minutes"],
-  },
-  {
     name: "garlic",
     ingredients: ["garlic (minced)", "water", "phosphoric acid"],
     common_allergen_tags: [],
@@ -87,7 +137,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "roasted garlic",
-    ingredients: ["garlic cloves (roasted)"],
+    ingredients: ["garlic cloves (roasted)", "water"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
     health_warning_tags: [],

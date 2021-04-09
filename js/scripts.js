@@ -5,6 +5,10 @@ function Pizza(size) {
   this.toppings = []
 }
 
+Pizza.prototype.addTopping = function(topping) {
+  this.toppings.push(topping)
+}
+
 // Console test instantiation
 /////////////////////////////
 const myToppings = ["spinach", "sun-dried tomatoes", "roasted garlic"];

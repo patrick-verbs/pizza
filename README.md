@@ -95,27 +95,37 @@ Business logic
 |                          ||
 |                          ||
 |                          ||
+
 <br>
+
+| _Describe:_              | _Pizza.prototype.addTopping()_ |
+|--------------------------|--------------|
+| __Test:__                | It pushes a string onto the "topping" array/property of Pizza objects. |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza.addTopping("flowers");```<br>```myPizza.toppings;``` |
+| __Expected Output 1:__   | ```["flowers"]``` |
+|                          ||
+|                          ||
+|                          ||
 
 ---
 ### Failing/Untested
 | _Describe:_              | _Pizza.prototype.addTopping()_ |
 |--------------------------|--------------|
-| __Test:__                | It pushes a string onto the "topping" array/property of Pizza objects. |
-| __Code 1:__              | `````` |
-| __Expected Output 1:__   | `````` |
-| __Code 2:__              | `````` |
-| __Expected Output 2:__   | `````` |
+| __Test:__                | It won't push items into the "toppings" property's array if there are already 12 items (or somehow more). |
+| __Code 1:__              |  |
+| __Expected Output 1:__   |  |
+| __Code 2:__              |  |
+| __Expected Output 2:__   |  |
 |                          ||
 |                          ||
 |                          ||
 | _Describe:_              | __ |
 |--------------------------|--------------|
 | __Test:__                |  |
-| __Code 1:__              | `````` |
-| __Expected Output 1:__   | `````` |
-| __Code 2:__              | `````` |
-| __Expected Output 2:__   | `````` |
+| __Code 1:__              |  |
+| __Expected Output 1:__   |  |
+| __Code 2:__              |  |
+| __Expected Output 2:__   |  |
 |                          ||
 |                          ||
 |                          ||

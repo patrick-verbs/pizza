@@ -19,6 +19,7 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
 Pizza.prototype.calcCost = function() {
   let livingWage = [3000, "hour"] // All numbers are 1/100th of a USD (so, cents)
   let laborCostPerMinute = math.floor(livingWage[0] / unitConversion(livingWage[1], "minutes"))
+  console.log(laborCostPerMinute)
   let total = 0
   let totalExpense = 0
   let totalPrepTime = 0
@@ -27,42 +28,62 @@ Pizza.prototype.calcCost = function() {
   for (let i = 0; i < this.toppings.length; i++) {
     let topping = this.toppings[i]
     let expense = topping.acquisition_expense
-    expense += () clamp(      topping.preparation_time[0]
+    expense += clamp(topping.preparation_time[0])
     let fees = 25 * (topping.health_warning_tags.length + topping.ethics_tags.length)
   }
 }
 
+// Utility functions
+////////////////////
 function clamp(number, min, max) { // Credit to answer by "dweeves" at https://stackoverflow.com/questions/11409895/whats-the-most-elegant-way-to-cap-a-number-to-a-segment
   return number <= min ? min : number >= max ? max : number
 }
 
 function unitConversion(inputUnit, outputUnit) {
-  const timeFactors = { // Numbers based on minimum units to delay floating-point handling
-    milliseconds: {
+  const factors = [ // Numbers based on minimum supported units, to delay floating-point handling as long as I can...
+    {
+      synonyms: ["ms", "millisecond", "milliseconds"],
       factor: 1,
-      synonyms: ["ms", "millisecond", "milliseconds"]
+      measures: "time",
     },
-    seconds: {
+    {
+      synonyms: ["s", "sec", "secs", "second", "seconds"],
       factor: 1000,
-      synonyms: ["s", "sec", "secs", "second", "seconds"]
+      measures: "time",
     },
-    minutes: {
+    {
+      synonyms: ["min", "mins", "minute", "minutes"],
       factor: 60000,
-      synonyms: ["min", "mins", "minute", "minutes"]
+      measures: "time",
     },
-    hours: {
+    {
+      synonyms: ["h", "hr", "hrs", "hour", "hours"],
       factor: 3600000,
-      synonyms: ["h", "hr", "hrs", "hour", "hours"]
+      measures: "time",
     },
+  ]
+  inputUnit = inputUnit.toLowerCase() // These may have to be removed if expanded for some case-sensitive units (e.g. Hz)
+  outputUnit = outputUnit.toLowerCase()
+  let inputFactor = 0
+  let outputFactor = 0
+  for (let i = 0; i < factors.length; i++) {
+    for (let j = 0; j < factors[i].synonyms.length; j++) {
+      if (inputUnit === factors[i].synonyms[j]) {
+        inputFactor = factors[i].factor
+      }
+      if (outputUnit === factors[i].synonyms[j]) {
+        outputFactor = factors[i].factor
+      }
+    }
   }
-  if (inputUnit.includes("hour") {
-    
-  }
+  let multiplier = (inputFactor / outputFactor).toFixed(4)
+  return multiplier
 }
 
 // Database simulation
 //////////////////////
 const all_toppings = [ // The overall array acts like a database
+  // Roughly based on data from https://www.dominos.com/en/pages/content/nutritional/ingredients
   { // Each ingredient is an object in the array
     name: "pepperoni",
     ingredients: ["pork", "beef", "salt", "pepper", "dextrose", "lactic acid starter culture", "natural flavors", "oleoresin of paprika", "sodium ascorbate", "sodium nitrite", "citric acid"],// can be used for user-specific filtering (e.g. rare allergies)
@@ -288,6 +309,6 @@ const all_toppings = [ // The overall array acts like a database
 
 // Console test instantiation
 /////////////////////////////
-// const myPizza = new Pizza("medium");
+const myPizza = new Pizza("medium");
 // const myToppings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "daisies", "dandelions"];
-// myPizza.addTopping(all_toppings, "black olives")
+myPizza.addTopping(all_toppings, "black olives")

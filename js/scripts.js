@@ -17,9 +17,8 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
 }
 
 Pizza.prototype.calcCost = function() {
-  let livingWage = [3000, "hour"] // All numbers are 1/100th of a USD (so, cents)
-  let laborCostPerMinute = math.floor(livingWage[0] / unitConversion(livingWage[1], "minutes"))
-  console.log(laborCostPerMinute)
+  // All numberic values are 1/100th of a USD (so, cents)
+  let laborCostPerMinute = Math.floor(LIVING_WAGE[0] / unitConversion(LIVING_WAGE[1], "minutes"))
   let total = 0
   let totalExpense = 0
   let totalPrepTime = 0
@@ -306,6 +305,16 @@ const all_toppings = [ // The overall array acts like a database
     surface_area_density: [1, "ounce", "cm^2"],
   },
 ]
+
+// Simulate processing Bureau of Labor and Statistics data for a living wage:
+const LIVING_WAGE = [30.14, "hour"]
+// This number is based the BLS Inflation Calculator from July 1968 (median for the year) to February 2021 (most recent available at this writing)
+// $1.60 (1968 minimum wage) comes to $12.06 on their calculator; I multiplied by 2.5 to bring it to the more equitable and realistic $30/hour for 2021 ($4/hour in 1968)
+
+// BLS API to do this "for real": https://www.bls.gov/developers/
+// CPI Inflation Calculator: https://www.bls.gov/data/inflation_calculator.htm || Based on API-pullable data series: https://data.bls.gov/timeseries/CUUR0000SA0
+// Article on basing a living wage on earnings growth, rather than indexing it on inflation: https://inequality.org/research/minimum-wage/
+// Data to instead base living wage on earnings growth: https://www.bls.gov/cps/earnings.htm
 
 // Console test instantiation
 /////////////////////////////

@@ -151,10 +151,6 @@ Business logic
 |                          ||
 |                          ||
 
-
-
----
-### Failing/Untested
 | _Describe:_              | _clamp()_ |
 |--------------------------|--------------|
 | __Test:__                | It "clamps" an argued number by rounding it up to an argued minimum or down to an argued maximum. |
@@ -164,6 +160,22 @@ Business logic
 | __Expected Output 2:__   | `4.9` |
 | __Code 3:__              | `clamp(-2, 1, 10);` |
 | __Expected Output 3:__   | `1` |
+|                          ||
+|                          ||
+|                          ||
+
+
+
+
+---
+### Failing/Untested
+| _Describe:_              | __ |
+|--------------------------|--------------|
+| __Test:__                |  |
+| __Code 1:__              |  |
+| __Expected Output 1:__   |  |
+| __Code 2:__              |  |
+| __Expected Output 2:__   |  |
 |                          ||
 |                          ||
 |                          ||

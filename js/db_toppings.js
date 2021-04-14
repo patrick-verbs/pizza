@@ -22,7 +22,7 @@ const all_toppings = [ // The overall array acts like a database
     health_warning_tags: [],
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
-    preparation_time: [0, "minutes"],
+    preparation_time: "12 mins"
     surface_area_density: [1, "ounce", "cm^2"],
   },
   {

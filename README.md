@@ -169,6 +169,17 @@ Business logic
 
 ---
 ### Failing/Untested
+| _Describe:_              | _unitConversion()_ |
+|--------------------------|--------------|
+| __Test:__                | It parses the string "12 mins" the same as it does a JSON-format "measurement." |
+| __Code 1:__              | `const myMeasurement = "12 mins";`<br>`unitConversion(myMeasurement, "hours");` |
+| __Expected Output 1:__   | `0.2` |
+| __Code 2:__              |  |
+| __Expected Output 2:__   |  |
+|                          ||
+|                          ||
+|                          ||
+
 | _Describe:_              | __ |
 |--------------------------|--------------|
 | __Test:__                |  |
@@ -190,18 +201,6 @@ Business logic
 
 
 ---
-### Template
-| _Describe:_              | _testTemplate()_ |
-|--------------------------|--------------|
-| __Test:__                | It should do the thing! |
-| __Code 1:__              | ```testTemplate("Do the thing!");``` |
-| __Expected Output 1:__   | ```"So here's the thing..."``` |
-|                          ||
-|                          ||
-|                          ||
-| __Test:__                | It should also do this other thing... |
-| __Code 1:__              | ```testTemplate("Another!");``` |
-| __Expected Output 1:__   | ```"And another thing!"``` |
 
 # <a name="License"></a>License
 ###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > License_

@@ -58,7 +58,9 @@ function unitConversion(inputMeasurement, outputUnits) {
     }
   ]
 
-  isJsonMeasurement = false // Flag for my measurement storage format
+  isJsonMeasurement = false // Flag for input measurement format
+  parsedMeasurement = {} // Prepare the object that will handle the measurement
+
   outputUnits = outputUnits.split(", ")
   let outputFactors = []
   let outputParadigms = []
@@ -70,17 +72,41 @@ function unitConversion(inputMeasurement, outputUnits) {
   if (typeof inputMeasurement === 'object' && inputMeasurement !== null && inputMeasurement.hasOwnProperty("numerator") && inputMeasurement.hasOwnProperty("denominator")) {
     // Checks whether the input is a special "measurement" JSON object (see "LivingWage()" for example)
     isJsonMeasurement = true
-    multiplierFactors.push((inputMeasurement.numerator).number)
-    divisorFactors.push((inputMeasurement.denominator).number)
-    // console.log("Detection working!\nBase number is: (" + multiplierFactors + ") / (" + divisorFactors + ")")
-  } else if (typeof inputMeasurement === 'string' && inputMeasurement !== null) {
-    let parsedMeasurement = inputMeasurement.split(" ")
-    let denominatorNumber = 1
-    let numeratorNumber = parseFloat(parsedMeasurement[0])
-    if ()
+    parsedMeasurement = inputMeasurement
+  }
+  if (isJsonMeasurement === false && typeof inputMeasurement === 'string' && inputMeasurement !== null) {
+    let splitMeasurement = inputMeasurement.split(" ")
+    let numeratorNumber = parseFloat(splitMeasurement[0])
+    (parsedMeasurement.numerator).units = []
+    (parsedMeasurement.denominator).units = []
+    let noDenominator = true
+    let divisionLine
+    // If the keyword "per" is used in the string, there is a denominator
+    for (let i = 1; i < splitMeasurement.length; i++) {
+      if (splitMeasurement[i] === "per") {
+        noDenominator = false
+        divisionLine = i
+        break
+      } else {
+        // If a word occurs before the word "per" (and after array[0]), it must be a numerator unit
+        ((parsedMeasurement.numerator).units).push(splitMeasurement[i])
+      }
+    }
+    // Build the JSON measurement
+    (parsedMeasurement.numerator).number = numeratorNumber
+    (parsedMeasurement.denominator).number = 1
+    if (noDenominator === false) {
+      for (let j = divisionLine + 1; j < splitMeasurement.length; j++) {
+        ((parsedMeasurement.denominator).units).push(splitMeasurement[j])
+      }
+    }
     // Future handling to parse strings
     // multiplierFactors.push(parsed input number)
-  }  
+  }
+
+  // Either inputMeasurement began as a JSON object or was transformed into one
+  multiplierFactors.push((parsedMeasurement.numerator).number)
+  divisorFactors.push((parsedMeasurement.denominator).number)
 
   // Find then store both the factors and paradigms of the output units
   for (let i = 0; i < allUnits.length; i++) {
@@ -92,18 +118,18 @@ function unitConversion(inputMeasurement, outputUnits) {
           outputFactors.push(outputFactor)
           outputParadigms.push(outputParadigm)
           // Possible call to function here (DRY)
-        }  
-      }  
-    }  
-  }  
+        }
+      }
+    }
+  }
   // console.log(`Output factors and their paradigms found!
   // This measurement includes the paradigm(s): ${outputParadigms}
   // The base factor(s) of the specific output units are: ${outputFactors}`)
 
   // Store the factors of the input measurement's units
   // *only* if those units are of the same paradigm as the output
-  const numeratorUnits = (inputMeasurement.numerator).units
-  const denominatorUnits = (inputMeasurement.denominator).units
+  const numeratorUnits = (parsedMeasurement.numerator).units
+  const denominatorUnits = (parsedMeasurement.denominator).units
   // console.log(`
   // The units used in the numerator are: ${numeratorUnits}
   // The units used in the denominator are: ${denominatorUnits}`)

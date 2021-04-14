@@ -72,7 +72,7 @@ function unitConversion(inputMeasurement, outputUnits) {
     isJsonMeasurement = true
     multiplierFactors.push((inputMeasurement.numerator).number)
     divisorFactors.push((inputMeasurement.denominator).number)
-    console.log("Detection working!\nBase number is: (" + multiplierFactors + ") / (" + divisorFactors + ")")
+    // console.log("Detection working!\nBase number is: (" + multiplierFactors + ") / (" + divisorFactors + ")")
   } else {
     // Future handling to parse strings
     // multiplierFactors.push(parsed input number)
@@ -92,17 +92,17 @@ function unitConversion(inputMeasurement, outputUnits) {
       }  
     }  
   }  
-  console.log(`Output factors and their paradigms found!
-  This measurement includes the paradigm(s): ${outputParadigms}
-  The base factor(s) of the specific output units are: ${outputFactors}`)
+  // console.log(`Output factors and their paradigms found!
+  // This measurement includes the paradigm(s): ${outputParadigms}
+  // The base factor(s) of the specific output units are: ${outputFactors}`)
 
   // Store the factors of the input measurement's units
   // *only* if those units are of the same paradigm as the output
   const numeratorUnits = (inputMeasurement.numerator).units
   const denominatorUnits = (inputMeasurement.denominator).units
-  console.log(`
-  The units used in the numerator are: ${numeratorUnits}
-  The units used in the denominator are: ${denominatorUnits}`)
+  // console.log(`
+  // The units used in the numerator are: ${numeratorUnits}
+  // The units used in the denominator are: ${denominatorUnits}`)
 
   for (let i = 0; i < allUnits.length; i++) {
     for (let j = 0; j < allUnits[i].synonyms.length; j++) {
@@ -110,7 +110,7 @@ function unitConversion(inputMeasurement, outputUnits) {
       for (let k = 0; k < numeratorUnits.length; k++) {
         if (numeratorUnits[k] === allUnits[i].synonyms[j]) {
           const thisParadigm = allUnits[i].measures
-          console.log("Match found: " + numeratorUnits[k] + ", " + thisParadigm)
+          // console.log("Match found: " + numeratorUnits[k] + ", " + thisParadigm)
           for (let m = 0; m < outputParadigms.length; m++) {
             if (thisParadigm === outputParadigms[m]) {
               multiplierFactors.push(allUnits[i].factor)
@@ -141,7 +141,7 @@ function unitConversion(inputMeasurement, outputUnits) {
   for (let i = 0; i < divisorFactors.length; i++) {
     finalDenominator *= divisorFactors[i]
   }
-  console.log("Multipliers: " + multiplierFactors + '\n' + "Divisors: " + divisorFactors)
-  console.log("Final result: " + finalNumerator/finalDenominator)
+  // console.log("Multipliers: " + multiplierFactors + '\n' + "Divisors: " + divisorFactors)
+  // console.log("Final result: " + finalNumerator/finalDenominator)
   return finalNumerator/finalDenominator
 }

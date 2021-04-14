@@ -140,6 +140,18 @@ Business logic
 |                          ||
 |                          ||
 
+| _Describe:_              | _unitConversion()_ |
+|--------------------------|--------------|
+| __Test:__                | It converts JSON "measurement" data into supported time (ms-hours) and currency (US dollars & cents) values. |
+| __Code 1:__              | `const oneHour = { numerator: {number: 1, units: ["hour"]}, denominator: {number: 1, units: [""]} };`<br>`unitConversion(oneHour, "seconds");`  |
+| __Expected Output 1:__   | `3600` |
+| __Code 2:__              | `const livingWage = new LivingWage();`<br>`unitConversion(livingWage, "minutes, cents");` |
+| __Expected Output 2:__   |  |
+|                          ||
+|                          ||
+|                          ||
+
+
 
 ---
 ### Failing/Untested

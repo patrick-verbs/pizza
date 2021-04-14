@@ -142,11 +142,11 @@ Business logic
 
 | _Describe:_              | _unitConversion()_ |
 |--------------------------|--------------|
-| __Test:__                | It converts JSON "measurement" data into supported time (ms-hours) and currency (US dollars & cents) values. |
-| __Code 1:__              | `const oneHour = { numerator: {number: 1, units: ["hour"]}, denominator: {number: 1, units: [""]} };`<br>`unitConversion(oneHour, "seconds");`  |
+| __Test:__                | It converts argued JSON "measurement" data into the equivalent time (ms to hours) and currency (US dollars & cents) values argued as a comma-delimited string. |
+| __Code 1:__              | `const oneHour = { numerator: {number: 1, units: ["hour"]}, denominator: {number: 1, units: [""]} };`<br><br>`unitConversion(oneHour, "seconds");`  |
 | __Expected Output 1:__   | `3600` |
 | __Code 2:__              | `const livingWage = new LivingWage();`<br>`unitConversion(livingWage, "minutes, cents");` |
-| __Expected Output 2:__   |  |
+| __Expected Output 2:__   | `50.233333333333334` |
 |                          ||
 |                          ||
 |                          ||
@@ -155,13 +155,15 @@ Business logic
 
 ---
 ### Failing/Untested
-| _Describe:_              | __ |
+| _Describe:_              | _clamp()_ |
 |--------------------------|--------------|
-| __Test:__                |  |
-| __Code 1:__              |  |
-| __Expected Output 1:__   |  |
-| __Code 2:__              |  |
-| __Expected Output 2:__   |  |
+| __Test:__                | It "clamps" an argued number by rounding it up to an argued minimum or down to an argued maximum. |
+| __Code 1:__              | `clamp(5, 1, 10);` |
+| __Expected Output 1:__   | `5` |
+| __Code 2:__              | `clamp(5.01, 1, 4.9);` |
+| __Expected Output 2:__   | `4.9` |
+| __Code 3:__              | `clamp(-2, 1, 10);` |
+| __Expected Output 3:__   | `1` |
 |                          ||
 |                          ||
 |                          ||

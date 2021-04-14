@@ -73,7 +73,11 @@ function unitConversion(inputMeasurement, outputUnits) {
     multiplierFactors.push((inputMeasurement.numerator).number)
     divisorFactors.push((inputMeasurement.denominator).number)
     // console.log("Detection working!\nBase number is: (" + multiplierFactors + ") / (" + divisorFactors + ")")
-  } else {
+  } else if (typeof inputMeasurement === 'string' && inputMeasurement !== null) {
+    let parsedMeasurement = inputMeasurement.split(" ")
+    let denominatorNumber = 1
+    let numeratorNumber = parseFloat(parsedMeasurement[0])
+    if ()
     // Future handling to parse strings
     // multiplierFactors.push(parsed input number)
   }  

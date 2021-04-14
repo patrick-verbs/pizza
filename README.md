@@ -125,6 +125,22 @@ Business logic
 |                          ||
 |                          ||
 
+| _Describe:_              | _LivingWage()_ |
+|--------------------------|--------------|
+| __Test:__                | It stores arbitrary "measurement" data (units & value) in a numerator and denominator. |
+| __Code 1:__              | `livingWage = new LivingWage();`<br>`livingWage.numerator.number;` |
+| __Expected Output 1:__   | `30.14` |
+| __Code 2:__              | `livingWage.numerator.units;` |
+| __Expected Output 2:__   | `["USD"]` |
+| __Code 3:__              | `livingWage.denominator.number;` |
+| __Expected Output 3:__   | `1` |
+| __Code 4:__              | `livingWage.denominator.units;` |
+| __Expected Output 4:__   | `["hour"]` |
+|                          ||
+|                          ||
+|                          ||
+
+
 ---
 ### Failing/Untested
 | _Describe:_              | __ |

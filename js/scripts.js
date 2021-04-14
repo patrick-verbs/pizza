@@ -19,7 +19,6 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
 Pizza.prototype.Cost = function() {
   const livingWage = new LivingWage
   let laborCostPerMinute = Math.floor(unitConversion(livingWage, "cents, minutes"))
-  return laborCostPerMinute
   let runningTotal = 0 // All numeric values are 1/100th of a USD (so, cents)
   let totalExpense = 0
   let totalPrepTime = 0

@@ -58,7 +58,7 @@ function unitConversion(inputMeasurement, outputUnits) {
     }
   ]
 
-  isJsonMeasurement = false
+  isJsonMeasurement = false // Flag for my measurement storage format
   outputUnits = outputUnits.split(", ")
   let outputFactors = []
   let outputParadigms = []
@@ -68,7 +68,7 @@ function unitConversion(inputMeasurement, outputUnits) {
 
   // Detect the notation format of the input measurement, then store its number (as factors)
   if (typeof inputMeasurement === 'object' && inputMeasurement !== null && inputMeasurement.hasOwnProperty("numerator") && inputMeasurement.hasOwnProperty("denominator")) {
-    // This checks whether the input is a special "measurement" JSON object I designed (see "LivingWage()" for example)
+    // Checks whether the input is a special "measurement" JSON object (see "LivingWage()" for example)
     isJsonMeasurement = true
     multiplierFactors.push((inputMeasurement.numerator).number)
     divisorFactors.push((inputMeasurement.denominator).number)

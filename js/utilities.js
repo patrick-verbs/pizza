@@ -29,32 +29,32 @@ function unitConversion(inputMeasurement, outputUnits) {
     {
       synonyms: ["ms", "millisecond", "milliseconds"],
       factor: 1,
-      measures: "time",
+      paradigm: "time",
     },
     {
       synonyms: ["s", "sec", "secs", "second", "seconds"],
       factor: 1000,
-      measures: "time",
+      paradigm: "time",
     },
     {
       synonyms: ["min", "mins", "minute", "minutes"],
       factor: 60000,
-      measures: "time",
+      paradigm: "time",
     },
     {
       synonyms: ["h", "hr", "hrs", "hour", "hours"],
       factor: 3600000,
-      measures: "time",
+      paradigm: "time",
     },
     {
       synonyms: ["cent", "cents"],
       factor: 1,
-      measures: "currency (United States)",
+      paradigm: "currency (United States)",
     },
     {
       synonyms: ["USD", "dollar", "dollars", "$"],
       factor: 100,
-      measures: "currency (United States)",
+      paradigm: "currency (United States)",
     }
   ]
 
@@ -84,7 +84,7 @@ function unitConversion(inputMeasurement, outputUnits) {
       for (let k = 0; k < outputUnits.length; k++) {
         if (outputUnits[k] === allUnits[i].synonyms[j]) {
           let outputFactor = allUnits[i].factor
-          let outputParadigm = allUnits[i].measures
+          let outputParadigm = allUnits[i].paradigm
           outputFactors.push(outputFactor)
           outputParadigms.push(outputParadigm)
           // Possible call to function here (DRY)
@@ -109,7 +109,7 @@ function unitConversion(inputMeasurement, outputUnits) {
       // assuming here it's a JSON measurement...
       for (let k = 0; k < numeratorUnits.length; k++) {
         if (numeratorUnits[k] === allUnits[i].synonyms[j]) {
-          const thisParadigm = allUnits[i].measures
+          const thisParadigm = allUnits[i].paradigm
           // console.log("Match found: " + numeratorUnits[k] + ", " + thisParadigm)
           for (let m = 0; m < outputParadigms.length; m++) {
             if (thisParadigm === outputParadigms[m]) {
@@ -121,7 +121,7 @@ function unitConversion(inputMeasurement, outputUnits) {
       }
       for (let k = 0; k < denominatorUnits.length; k++) {
         if (denominatorUnits[k] === allUnits[i].synonyms[j]) {
-          const thisParadigm = allUnits[i].measures
+          const thisParadigm = allUnits[i].paradigm
           for (let m = 0; m < outputParadigms.length; m++) {
             if (thisParadigm === outputParadigms[m]) {
               divisorFactors.push(allUnits[i].factor)

@@ -46,9 +46,8 @@ This project's repository and contained source is available under the MIT Licens
 
 ## <a name="Bugs"></a>Known Bugs
 ###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Known Bugs_
-- definitely fortcoming*...
+- User can potentially construct multiple pizzas if they click the size-select `<div>`s rapidly before they disappear
 
-###### *fort<em><strong>h</strong></em>coming
 
 ## <a name="Specs"></a>Test Specs
 ###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Specs_
@@ -169,6 +168,22 @@ Business logic
 
 ---
 ### Failing/Untested
+
+| _Describe:_              | _removeArrayValue_ |
+|--------------------------|--------------|
+| __Test:__                | It removes a specified value from an array regardless of its position in the array. |
+| __Code 1:__              | `const array1 = ["red", "green", "blue"];`<br>`removeArrayValue(array1, "green");` |
+| __Expected Output 1:__   | `["red", "blue"]` |
+|                          ||
+|                          ||
+|                          ||
+| __Test:__                | It removes all instances of a specified value from an array. |
+| __Code 1:__              | `const array2 = ["red", "green", "green", "green", "blue"];`<br>`removeArrayValue(array2, "green");` |
+| __Expected Output 1:__   | `["red", "blue"]` |
+|                          ||
+|                          ||
+|                          ||
+
 | _Describe:_              | _unitConversion()_ |
 |--------------------------|--------------|
 | __Test:__                | It parses the string "12 mins" the same as it does a JSON-format "measurement." |

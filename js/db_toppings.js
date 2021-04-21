@@ -4,6 +4,7 @@ const all_toppings = [ // The overall array acts like a database
   // Roughly based on data from https://www.dominos.com/en/pages/content/nutritional/ingredients
   { // Each ingredient is an object in the array
     name: "pepperoni",
+    type: "meat",
     ingredients: ["pork", "beef", "salt", "pepper", "dextrose", "lactic acid starter culture", "natural flavors", "oleoresin of paprika", "sodium ascorbate", "sodium nitrite", "citric acid"],// can be used for user-specific filtering (e.g. rare allergies)
     common_allergen_tags: [],// should be derived from ingredients (and processes/preparation for cross-contamination risk??)
     dietary_tags: [],// should also be derived from ingredients
@@ -16,17 +17,19 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "grilled chicken",
+    type: "meat",
     ingredients: ["chicken breast with rib meat (boneless; skinless)", "water", "yeast extract", "garlic powder", "buttermilk powder", "onion powder", "maltodextrin", "modified corn starch", "lipolyzed butter oil", "salt", "whey powder (milk)", "dehydrated garlic", "chicken powder", "flavors", "sunflower oil", "disodium guanylate", "disodium inosinate", "pepper", "chicken fat", "chicken broth", "sodium caseinate (milk)", "sodium phosphate", "modified food starch", "vinegar", "salt", "sodium phosphates"],
     common_allergen_tags: ["milk"],
     dietary_tags: [],
     health_warning_tags: [],
     ethics_tags: [],
     acquisition_expense: [500, "USD / 100", "pound"],
-    preparation_time: "12 mins"
+    preparation_time: "12 mins",
     surface_area_density: [1, "ounce", "cm^2"],
   },
   {
     name: "Italian sausage",
+    type: "meat",
     ingredients: ["pork", "water", "salt", "pepper", "dextrose", "sodium phosphates", "natural flavors", "dehydrated garlic", "onion powder", "oleoresin of paprika"],
     common_allergen_tags: [],
     dietary_tags: [],
@@ -38,6 +41,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "salami",
+    type: "meat",
     ingredients: ["pork", "beef", "salt", "pepper", "natural flavors", "maltodextrin", "natural smoke flavor", "lactic acid starter culture", "sodium nitrite"],
     common_allergen_tags: [],
     dietary_tags: [],
@@ -49,6 +53,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "feta cheese",
+    type: "dairy",
     ingredients: ["cultured pasteurized milk", "salt", "enzymes", "potato starch (to prevent caking)"],
     common_allergen_tags: ["milk"],
     dietary_tags: ["vegetarian"],
@@ -60,6 +65,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "Parmesan cheese",
+    type: "dairy",
     ingredients: ["pasteurized part-skim milk", "cheese cultures", "salt", "enzymes", "powdered cellulose (to prevent caking)", "titanium dioxide"],
     common_allergen_tags: ["milk"],
     dietary_tags: ["vegetarian"],
@@ -71,6 +77,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "spinach",
+    type: "plant",
     ingredients: ["baby spinach leaves"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan", "vegan_SOS-free"],
@@ -82,6 +89,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "banana peppers",
+    type: "plant",
     ingredients: ["banana peppers (sliced)", "water", "distilled vinegar", "salt", "calcium chloride", "sodium benzoate (preservative)", "turmeric", "sodium metabisulfate (preservative)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -93,6 +101,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "pepperoncini",
+    type: "plant",
     ingredients: ["pepperoncini (sliced)", "water", "salt", "citric acid", "sodium bisulfate", "sodium benzoate", "turmeric"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -104,6 +113,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "black olives",
+    type: "plant",
     ingredients: ["black olives (sliced)", "water", "salt", "ferrous gluconate (to stabilize color)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -115,6 +125,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "garlic",
+    type: "plant",
     ingredients: ["garlic (minced)", "water", "phosphoric acid"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -126,6 +137,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "roasted garlic",
+    type: "plant",
     ingredients: ["garlic cloves (roasted)", "water"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -137,6 +149,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "green peppers",
+    type: "plant",
     ingredients: ["green bell peppers (sliced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -148,6 +161,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "jalapeño peppers",
+    type: "plant",
     ingredients: ["jalapeño peppers (sliced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -159,6 +173,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "mushrooms",
+    type: "plant",
     ingredients: ["cremini mushrooms (sliced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -170,6 +185,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "pineapple",
+    type: "plant",
     ingredients: ["pineapple (diced)", "water", "sugar", "citric acid", "ascorbic acid"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -181,6 +197,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "onions",
+    type: "plant",
     ingredients: ["yellow onions (sliced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -192,6 +209,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "red onions",
+    type: "plant",
     ingredients: ["red onions (sliced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -203,6 +221,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "roasted red peppers",
+    type: "plant",
     ingredients: ["red peppers (chopped)", "water", "salt", "citric acid", "calcium chloride"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],
@@ -214,6 +233,7 @@ const all_toppings = [ // The overall array acts like a database
   },
   {
     name: "diced tomatoes",
+    type: "plant",
     ingredients: ["roma tomatoes (diced)"],
     common_allergen_tags: [],
     dietary_tags: ["vegetarian", "vegan"],

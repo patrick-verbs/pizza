@@ -15,15 +15,23 @@
 </head>
 <body>
   
-  <div class="container">
-    <div id="small-select" class="card">small</div>
-    <div id="medium-select" class="card">medium</div>
-    <div id="large-select" class="card">large</div>
+  <div class="container" id="size-choice">
+    <div id="small" class="card meat"><span class="button-text">small</span></div>
+    <div id="medium" class="card meat"><span class="button-text">medium</span></div>
+    <div id="large" class="card meat"><span class="button-text">large</span></div>    
   </div>
 
-  <form class="hide-me" id="form-toppings">
+  <div id="toppings-choice" class="container hide-me">
+    <div id="flexy" class="container">
+      <button id="makeThePizzaAlready">🍕</button>
+    </div>
+    <div class="row">
+      <div id="unselected-toppings" class="col-4">
+      </div>
+      <div id="selected-toppings" class="col-4">
+      </div>
+    </div>
+  </div>
 
-  </form>
-  
 </body>
 </html>

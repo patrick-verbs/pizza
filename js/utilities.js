@@ -4,6 +4,24 @@ function clamp(number, min, max) { // Credit to answer by "dweeves" at https://s
   return number <= min ? min : number >= max ? max : number
 }
 
+function removeArrayValue(array, value, all) {
+  if (all) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] != value) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
+  } else {
+    const index = array.indexOf(value);
+    if (index >= 0) {
+      array.splice(index, 1);
+    }
+    return array;
+  }
+}
+
 // Simulate processing Bureau of Labor and Statistics data for a living wage:
 function LivingWage() {
   // This number is based the BLS Inflation Calculator from July 1968 (median for the year) to February 2021 (most recent available at this writing)
@@ -59,7 +77,16 @@ function unitConversion(inputMeasurement, outputUnits) {
   ]
 
   isJsonMeasurement = false // Flag for input measurement format
-  parsedMeasurement = {} // Prepare the object that will handle the measurement
+  parsedMeasurement = {
+    numerator: {
+      number: 0,
+      units: [],
+    },
+    denominator: {
+      number: 0,
+      units: [],
+    }
+  } // Prepare the object that will handle the measurement
 
   outputUnits = outputUnits.split(", ")
   let outputFactors = []
@@ -76,9 +103,9 @@ function unitConversion(inputMeasurement, outputUnits) {
   }
   if (isJsonMeasurement === false && typeof inputMeasurement === 'string' && inputMeasurement !== null) {
     let splitMeasurement = inputMeasurement.split(" ")
-    let numeratorNumber = parseFloat(splitMeasurement[0])
-    (parsedMeasurement.numerator).units = []
-    (parsedMeasurement.denominator).units = []
+    (parsedMeasurement.numerator).units = parseFloat(splitMeasurement[0])
+    // (parsedMeasurement.numerator).units = []
+    // (parsedMeasurement.denominator).units = []
     let noDenominator = true
     let divisionLine
     // If the keyword "per" is used in the string, there is a denominator

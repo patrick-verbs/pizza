@@ -8,8 +8,10 @@ function Pizza(size) {
 
 Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
   if (this.toppings.length < this.max_toppings) {
-    index = toppingDatabase.findIndex(x => x.name === toppingName) // Credit to answer by "Michał Perłakowski" at https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
-    this.toppings.push(toppingDatabase[index.name])
+    console.log("Here's the topping: " + toppingName)
+    const index = toppingDatabase.findIndex(toppingDatabase => toppingDatabase.name === toppingName) // Credit to answer by "Michał Perłakowski" at https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
+    console.log("")
+    this.toppings.push(toppingDatabase[index].name)
     return true
   } else {
     return false
@@ -17,20 +19,29 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
 }
 
 Pizza.prototype.Cost = function() {
-  return "$12.00"
-  // const livingWage = new LivingWage
-  // let laborCostPerMinute = Math.floor(unitConversion(livingWage, "cents, minutes"))
-  // let runningTotal = 0 // All numeric values are 1/100th of a USD (so, cents)
-  // let totalExpense = 0
-  // let totalPrepTime = 0
-  // let totalPoisonFee = 0
-  // let totalUnethicalFee = 0
-  // for (let i = 0; i < this.toppings.length; i++) {
-  //   let topping = this.toppings[i]
-  //   let expense = topping.acquisition_expense
-  //   expense += clamp(topping.preparation_time[0])
-  //   let fees = 25 * (topping.health_warning_tags.length + topping.ethics_tags.length)
-  // }
+  let sizeCost
+  if (this.size === "small") {
+    sizeCost = 4
+  } else if (this.size === "medium") {
+    sizeCost = 6
+  } else if (this.size === "large") {
+    sizeCost = 8
+  }
+  let totalCost = sizeCost
+  console.log("The toppings on this pizza are: " + this.toppings)
+  let topping;
+  for (let i = 0; i < this.toppings.length; i++) {
+    topping = this.toppings[i]
+    console.log("Topping: " + topping)
+    for (let j = 0; j < all_toppings.length; j++) {
+      if (topping === all_toppings[j].name) {
+        console.log("why are there sooo many ingredients..." + all_toppings[j])
+        // This adds "10" (cents) per ingredient in the topping
+        totalCost += 10 * (all_toppings[j].ingredients.length)
+      }
+    }
+  }
+  return totalCost
 }
 
 // UI logic
@@ -47,14 +58,17 @@ $(document).ready(function() {
 
   const sizeSelector = $("#size-choice")
   const toppingSelector = $("#toppings-choice")
+  const pizzaResults = $("#pizza-results")
   const toppingsArray = []
   sizeSelector.on("click", "div", function() {
     sizeSelector.slideUp()
-    const myPizza = new Pizza(this.id)
-    toppingSelector.removeClass("hide-me")//.slideDown()
+    const myPizza = new Pizza(this.id)// "this.id" will be "small", "medium", or "large"
+    toppingSelector.removeClass("hide-me")
 
     unselectedToppings.on("click", ".topping", function() {
-      toppingsArray.push(this.id)
+      // some stupid topping with "-" instead of " "
+      let topping = this.id.replace("-", " ")
+      toppingsArray.push(topping)
       $(selectedToppings).append($(this)) // "this" === $("#whateverId")
     })
 
@@ -65,11 +79,14 @@ $(document).ready(function() {
     })
 
     $("#makeThePizzaAlready").on("click", function () {
+      toppingSelector.slideUp()
       for (let i = 0; i < toppingsArray.length; i++) {
         myPizza.addTopping(all_toppings, toppingsArray[i])
       }
       console.log(myPizza.cost + " with " + toppingsArray.length + " toppings...")
       console.log(toppingsArray)
+      pizzaResults.html(`<h2>Final price:</h2><br><h1>${myPizza.Cost()}</h1>`)
+      pizzaResults.removeClass("hide-me")
     })
   })
 })

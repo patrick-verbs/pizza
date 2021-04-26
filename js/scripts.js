@@ -10,7 +10,6 @@ Pizza.prototype.addTopping = function(toppingDatabase, toppingName) {
   if (this.toppings.length < this.max_toppings) {
     console.log("Here's the topping: " + toppingName)
     const index = toppingDatabase.findIndex(toppingDatabase => toppingDatabase.name === toppingName) // Credit to answer by "Michał Perłakowski" at https://stackoverflow.com/questions/7364150/find-object-by-id-in-an-array-of-javascript-objects
-    console.log("")
     this.toppings.push(toppingDatabase[index].name)
     return true
   } else {
@@ -37,10 +36,11 @@ Pizza.prototype.Cost = function() {
       if (topping === all_toppings[j].name) {
         console.log("why are there sooo many ingredients..." + all_toppings[j])
         // This adds "10" (cents) per ingredient in the topping
-        totalCost += 10 * (all_toppings[j].ingredients.length)
+        totalCost += 0.10 * (all_toppings[j].ingredients.length)
       }
     }
   }
+  totalCost = clamp(totalCost, sizeCost + 1, 14)
   return totalCost
 }
 
@@ -66,10 +66,9 @@ $(document).ready(function() {
     toppingSelector.removeClass("hide-me")
 
     unselectedToppings.on("click", ".topping", function() {
-      // some stupid topping with "-" instead of " "
       let topping = this.id.replace("-", " ")
       toppingsArray.push(topping)
-      $(selectedToppings).append($(this)) // "this" === $("#whateverId")
+      $(selectedToppings).append($(this))
     })
 
     const selectedToppings = $("#selected-toppings")
@@ -85,13 +84,8 @@ $(document).ready(function() {
       }
       console.log(myPizza.cost + " with " + toppingsArray.length + " toppings...")
       console.log(toppingsArray)
-      pizzaResults.html(`<h2>Final price:</h2><br><h1>${myPizza.Cost()}</h1>`)
+      pizzaResults.html(`<h2>Your pizza's final price is:</h2><br><h1>$${(myPizza.Cost()).toFixed(2)}</h1>`)
       pizzaResults.removeClass("hide-me")
     })
   })
 })
-
-// Console test instantiation
-/////////////////////////////
-// const myToppings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "daisies", "dandelions"];
-// myPizza.addTopping(all_toppings, "black olives")

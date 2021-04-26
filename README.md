@@ -124,7 +124,7 @@ Business logic
 |                          ||
 |                          ||
 
-| _Describe:_              | _LivingWage()_ |
+| _Describe:_              | ~~_LivingWage()_~~ Removed |
 |--------------------------|--------------|
 | __Test:__                | It stores arbitrary "measurement" data (units & value) in a numerator and denominator. |
 | __Code 1:__              | `livingWage = new LivingWage();`<br>`livingWage.numerator.number;` |
@@ -139,7 +139,7 @@ Business logic
 |                          ||
 |                          ||
 
-| _Describe:_              | _unitConversion()_ |
+| _Describe:_              | ~~_unitConversion()_~~ Removed |
 |--------------------------|--------------|
 | __Test:__                | It converts argued JSON "measurement" data into the equivalent time (ms to hours) and currency (US dollars & cents) values argued as a comma-delimited string. |
 | __Code 1:__              | `const oneHour = { numerator: {number: 1, units: ["hour"]}, denominator: {number: 1, units: [""]} };`<br><br>`unitConversion(oneHour, "seconds");`  |
@@ -163,7 +163,7 @@ Business logic
 |                          ||
 |                          ||
 
-| _Describe:_              | _removeArrayValue_ |
+| _Describe:_              | _removeArrayValue()_ |
 |--------------------------|--------------|
 | __Test:__                | It removes a specified value from an array regardless of its position in the array. |
 | __Code 1:__              | `const array1 = ["red", "green", "blue"];`<br>`removeArrayValue(array1, "green");` |
@@ -178,12 +178,19 @@ Business logic
 |                          ||
 |                          ||
 
-
+| _Describe:_              | _Pizza.prototype.cost()_ |
+|--------------------------|--------------|
+| __Test:__                | It returns the price of a pizza based on its size, number of toppings, and number of ingredients per topping. |
+| __Code 1:__              | ```const myPizza = new Pizza("medium");```<br>```myPizza.addTopping(all_toppings, "black olives");```<br>```myPizza.addTopping(all_toppings, "banana peppers");```<br>```myPizza.Cost();``` |
+| __Expected Output 1:__   | ```7.2``` |
+|                          ||
+|                          ||
+|                          ||
 
 
 ---
 ### Failing/Untested
-| _Describe:_              | _unitConversion()_ |
+| _Describe:_              | ~~_unitConversion()_~~ Deprecated/not implemented |
 |--------------------------|--------------|
 | __Test:__                | It parses the string "12 mins" the same as it does a JSON-format "measurement." |
 | __Code 1:__              | `const myMeasurement = "12 mins";`<br>`unitConversion(myMeasurement, "hours");` |

@@ -1,7 +1,6 @@
 # <a name="Pizza"></a>"Pizza Portal"
-#### Patrick Lee | _[See this project on GitHub Pages](https://patrick-verbs.github.io/pizza-portal)_ _(...when it's live)_
+#### Patrick Lee | _[See this project on GitHub Pages](https://patrick-verbs.github.io/pizza-portal)_
 
-## __If you're an Epicodus student__ (or anyone else!) you're free to use this README as a template for your own work :)
 <details><summary><strong>Contents</strong></summary>
 <ul>
   <li><a href="#About">About</a></li>
@@ -41,7 +40,7 @@ This project's repository and contained source is available under the MIT Licens
 ## <a name="Technologies"></a>Technologies Used
 ###### _[Pizza Portal](https://github.com/patrick-verbs/pizza-portal) > [About](#About) > Technologies Used_
 - __HTML5__
-- __JavaScript__ with __[jQuery v. 3.6.0](https://jquery.com/)__
+- __JavaScript__ with __[jQuery 3.6.0](https://jquery.com/)__
 - __CSS3__ with __[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)__
 
 ## <a name="Bugs"></a>Known Bugs
